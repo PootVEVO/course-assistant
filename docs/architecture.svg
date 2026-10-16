@@ -1,0 +1,173 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='860' viewBox='0 0 1280 860'>
+<defs><marker id='arrow' viewBox='0 0 10 10' refX='9' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'><path d='M0,0 L10,5 L0,10 z' fill='#475569'/></marker></defs>
+<rect x='0' y='0' width='1280' height='860' fill='#ffffff'/>
+<text x='20' y='34' font-size='20' font-weight='700' fill='#0f172a' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Course Assistant - architecture (hybrid multimodal RAG)</text>
+<rect x='16' y='52' width='914' height='792' rx='12' fill='#f8fafc' stroke='#94a3b8' stroke-width='1.5'/>
+<text x='32' y='76' font-size='14' font-weight='700' fill='#334155' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Your computer - Python app (Gradio UI at localhost:7860, data/ folder)</text>
+<rect x='946' y='52' width='318' height='792' rx='12' fill='#fff7ed' stroke='#fb923c' stroke-width='1.5'/>
+<text x='962' y='76' font-size='14' font-weight='700' fill='#9a3412' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Class server - dobolyi.com (vLLM 0.29)</text>
+<rect x='966' y='100' width='278' height='96' rx='8' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='1105.0' y='136.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Vision LLM</text>
+<text x='1105.0' y='152.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Qwen3.6-35B-A3B (AWQ 4-bit)</text>
+<text x='1105.0' y='168.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>answers, support check, quizzes</text>
+<rect x='1198' y='90' width='50' height='20' rx='10' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='1223' y='104' text-anchor='middle' font-size='11' font-weight='700' fill='#7c3aed' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9001</text>
+<rect x='966' y='240' width='278' height='96' rx='8' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='1105.0' y='276.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Text embeddings</text>
+<text x='1105.0' y='292.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>nvidia/Nemotron-3-Embed-1B</text>
+<text x='1105.0' y='308.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>chunks + queries (/v2/embed)</text>
+<rect x='1198' y='230' width='50' height='20' rx='10' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='1223' y='244' text-anchor='middle' font-size='11' font-weight='700' fill='#2563eb' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9002</text>
+<rect x='966' y='380' width='278' height='96' rx='8' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='1105.0' y='416.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Visual embeddings</text>
+<text x='1105.0' y='432.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Qwen3-VL-Embedding-2B</text>
+<text x='1105.0' y='448.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>page images + queries</text>
+<rect x='1198' y='370' width='50' height='20' rx='10' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='1223' y='384' text-anchor='middle' font-size='11' font-weight='700' fill='#16a34a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9003</text>
+<rect x='966' y='520' width='278' height='96' rx='8' fill='#fee2e2' stroke='#dc2626' stroke-width='1.5'/>
+<text x='1105.0' y='556.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Multimodal reranker</text>
+<text x='1105.0' y='572.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Qwen3-VL-Reranker-2B</text>
+<text x='1105.0' y='588.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>query x (text + slide image)</text>
+<rect x='1198' y='510' width='50' height='20' rx='10' fill='#fee2e2' stroke='#dc2626' stroke-width='1.5'/>
+<text x='1223' y='524' text-anchor='middle' font-size='11' font-weight='700' fill='#dc2626' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9004</text>
+<rect x='966' y='660' width='278' height='96' rx='8' fill='#fef9c3' stroke='#ca8a04' stroke-width='1.5'/>
+<text x='1105.0' y='696.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Document parser (OCR)</text>
+<text x='1105.0' y='712.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>dots.mocr</text>
+<text x='1105.0' y='728.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>pages with no text layer</text>
+<rect x='1198' y='650' width='50' height='20' rx='10' fill='#fef9c3' stroke='#ca8a04' stroke-width='1.5'/>
+<text x='1223' y='664' text-anchor='middle' font-size='11' font-weight='700' fill='#ca8a04' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9005</text>
+<text x='966' y='812' font-size='12' font-weight='400' fill='#9a3412' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Badges like :9003 on the left show</text>
+<text x='966' y='828' font-size='12' font-weight='400' fill='#9a3412' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>which service a step calls. Key in .env only.</text>
+<text x='32' y='108' font-size='15' font-weight='700' fill='#1e293b' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>1  Document preparation (Materials tab)</text>
+<rect x='36' y='126' width='160' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='116.0' y='149.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Add / remove files</text>
+<text x='116.0' y='165.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>PDF, PPTX, DOCX, MD,</text>
+<text x='116.0' y='181.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>images; SHA-256 dedupe</text>
+<rect x='216' y='126' width='150' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='291.0' y='149.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>LibreOffice</text>
+<text x='291.0' y='165.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>PPTX/DOCX -&gt; PDF</text>
+<text x='291.0' y='181.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>(headless soffice)</text>
+<rect x='386' y='126' width='170' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='471.0' y='149.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>PyMuPDF</text>
+<text x='471.0' y='165.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>page/slide PNG + text</text>
+<text x='471.0' y='181.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>OCR if no text</text>
+<rect x='510' y='116' width='50' height='20' rx='10' fill='#fef9c3' stroke='#ca8a04' stroke-width='1.5'/>
+<text x='535' y='130' text-anchor='middle' font-size='11' font-weight='700' fill='#ca8a04' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9005</text>
+<rect x='576' y='126' width='170' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='661.0' y='149.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Chunker</text>
+<text x='661.0' y='165.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>800 chars, 120 overlap</text>
+<text x='661.0' y='181.33333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>keeps doc + slide no.</text>
+<line x1='196' y1='161' x2='214' y2='161' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='366' y1='161' x2='384' y2='161' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='556' y1='161' x2='574' y2='161' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='386' y='226' width='170' height='62' rx='8' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='471.0' y='253.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>page_images</text>
+<text x='471.0' y='269.33333333333337' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Chroma, visual vectors</text>
+<rect x='510' y='216' width='50' height='20' rx='10' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='535' y='230' text-anchor='middle' font-size='11' font-weight='700' fill='#16a34a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9003</text>
+<rect x='576' y='226' width='170' height='62' rx='8' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='661.0' y='253.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>text_chunks</text>
+<text x='661.0' y='269.33333333333337' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Chroma, text vectors</text>
+<rect x='700' y='216' width='50' height='20' rx='10' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='725' y='230' text-anchor='middle' font-size='11' font-weight='700' fill='#2563eb' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9002</text>
+<rect x='766' y='226' width='150' height='62' rx='8' fill='#f1f5f9' stroke='#475569' stroke-width='1.5'/>
+<text x='841.0' y='253.33333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>keyword index</text>
+<text x='841.0' y='269.33333333333337' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>BM25 (bm25s)</text>
+<line x1='471' y1='196' x2='471' y2='224' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='661' y1='196' x2='661' y2='224' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<polyline points='746,176 841,176 841,224' fill='none' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<text x='40' y='268' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Removing a file deletes its pages,</text>
+<text x='40' y='284' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>chunks and vectors from all 3 indexes.</text>
+<text x='32' y='330' font-size='15' font-weight='700' fill='#1e293b' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>2  Answering a question (Ask tab)</text>
+<rect x='36' y='400' width='140' height='66' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='106.0' y='421.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Question</text>
+<text x='106.0' y='437.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>+ optional</text>
+<text x='106.0' y='453.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>document filter</text>
+<rect x='206' y='346' width='170' height='50' rx='8' fill='#f1f5f9' stroke='#475569' stroke-width='1.5'/>
+<text x='291.0' y='367.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Keyword search</text>
+<text x='291.0' y='383.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>BM25 top 20 chunks</text>
+<rect x='206' y='408' width='170' height='50' rx='8' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='291.0' y='429.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Text vector search</text>
+<text x='291.0' y='445.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>top 20 chunks</text>
+<rect x='330' y='398' width='50' height='20' rx='10' fill='#dbeafe' stroke='#2563eb' stroke-width='1.5'/>
+<text x='355' y='412' text-anchor='middle' font-size='11' font-weight='700' fill='#2563eb' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9002</text>
+<rect x='206' y='470' width='170' height='50' rx='8' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='291.0' y='491.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Visual vector search</text>
+<text x='291.0' y='507.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>top 10 page images</text>
+<rect x='330' y='460' width='50' height='20' rx='10' fill='#dcfce7' stroke='#16a34a' stroke-width='1.5'/>
+<text x='355' y='474' text-anchor='middle' font-size='11' font-weight='700' fill='#16a34a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9003</text>
+<line x1='176' y1='433' x2='204' y2='371' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='176' y1='433' x2='204' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='176' y1='433' x2='204' y2='495' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='406' y='404' width='150' height='58' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='481.0' y='429.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>RRF fusion</text>
+<text x='481.0' y='445.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>page level, top 12</text>
+<line x1='376' y1='371' x2='404' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='376' y1='433' x2='404' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='376' y1='495' x2='404' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='586' y='404' width='150' height='58' rx='8' fill='#fee2e2' stroke='#dc2626' stroke-width='1.5'/>
+<text x='661.0' y='429.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Reranker</text>
+<text x='661.0' y='445.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>on/off toggle</text>
+<rect x='690' y='394' width='50' height='20' rx='10' fill='#fee2e2' stroke='#dc2626' stroke-width='1.5'/>
+<text x='715' y='408' text-anchor='middle' font-size='11' font-weight='700' fill='#dc2626' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9004</text>
+<line x1='556' y1='433' x2='584' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='766' y='404' width='150' height='58' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='841.0' y='429.3333333333333' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Best evidence</text>
+<text x='841.0' y='445.3333333333333' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>top 4 pages: text + image</text>
+<line x1='736' y1='433' x2='764' y2='433' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='766' y='548' width='150' height='66' rx='8' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='841.0' y='569.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Vision LLM</text>
+<text x='841.0' y='585.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>returns JSON with</text>
+<text x='841.0' y='601.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>answer + sources</text>
+<rect x='870' y='538' width='50' height='20' rx='10' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='895' y='552' text-anchor='middle' font-size='11' font-weight='700' fill='#7c3aed' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9001</text>
+<line x1='841' y1='462' x2='841' y2='546' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='586' y='548' width='150' height='66' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='661.0' y='569.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Validate</text>
+<text x='661.0' y='585.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>schema, source ids,</text>
+<text x='661.0' y='601.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>quotes; 1 repair retry</text>
+<line x1='766' y1='581' x2='738' y2='581' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='406' y='548' width='150' height='66' rx='8' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='481.0' y='569.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Support check</text>
+<text x='481.0' y='585.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>LLM judge: supported /</text>
+<text x='481.0' y='601.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>partial / unsupported</text>
+<rect x='510' y='538' width='50' height='20' rx='10' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='535' y='552' text-anchor='middle' font-size='11' font-weight='700' fill='#7c3aed' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9001</text>
+<line x1='586' y1='581' x2='558' y2='581' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<rect x='206' y='548' width='170' height='66' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='291.0' y='569.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Gradio answer view</text>
+<text x='291.0' y='585.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>answer, cited excerpts,</text>
+<text x='291.0' y='601.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>original slide images</text>
+<line x1='406' y1='581' x2='378' y2='581' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<text x='40' y='640' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>No evidence / invalid citations -&gt; "not in the course materials". A service that is down is skipped with a warning;</text>
+<text x='40' y='656' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>if the LLM is down, the closest pages are still shown.</text>
+<text x='32' y='694' font-size='15' font-weight='700' fill='#1e293b' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>3  Practice quiz (Quiz tab)</text>
+<rect x='36' y='712' width='150' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='111.0' y='735.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Choose material</text>
+<text x='111.0' y='751.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>+ optional topic</text>
+<text x='111.0' y='767.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>+ no. of questions</text>
+<rect x='206' y='712' width='170' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='291.0' y='735.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Pick evidence</text>
+<text x='291.0' y='751.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>topic: hybrid search</text>
+<text x='291.0' y='767.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>else: spread pages</text>
+<rect x='396' y='712' width='160' height='70' rx='8' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='476.0' y='735.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Vision LLM</text>
+<text x='476.0' y='751.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>4-option MCQs, JSON,</text>
+<text x='476.0' y='767.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>quote from source</text>
+<rect x='510' y='702' width='50' height='20' rx='10' fill='#ede9fe' stroke='#7c3aed' stroke-width='1.5'/>
+<text x='535' y='716' text-anchor='middle' font-size='11' font-weight='700' fill='#7c3aed' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>:9001</text>
+<rect x='576' y='712' width='160' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='656.0' y='735.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Validate + shuffle</text>
+<text x='656.0' y='751.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>drop unsupported Qs,</text>
+<text x='656.0' y='767.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>answer key fixed</text>
+<rect x='756' y='712' width='160' height='70' rx='8' fill='#ffffff' stroke='#334155' stroke-width='1.5'/>
+<text x='836.0' y='735.3333333333334' text-anchor='middle' font-size='13' font-weight='700' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Quiz session (server)</text>
+<text x='836.0' y='751.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>key hidden until answer</text>
+<text x='836.0' y='767.3333333333334' text-anchor='middle' font-size='12' font-weight='400' fill='#0f172a' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>or Show answer; scoring</text>
+<line x1='186' y1='747' x2='204' y2='747' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='376' y1='747' x2='394' y2='747' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='556' y1='747' x2='574' y2='747' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<line x1='736' y1='747' x2='754' y2='747' stroke='#475569' stroke-width='1.8' marker-end='url(#arrow)'/>
+<text x='40' y='808' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Feedback shows correct option, explanation, document + slide/page, the quoted excerpt, and the slide image.</text>
+<text x='40' y='826' font-size='12' font-weight='400' fill='#475569' text-anchor='start' font-family='-apple-system, Segoe UI, Helvetica, Arial, sans-serif'>Stored locally: data/library.json, data/docs/&lt;id&gt;/pages/*.png, chunks.json, data/chroma/  (all git-ignored).</text>
+</svg>
