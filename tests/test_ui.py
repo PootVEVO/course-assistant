@@ -63,8 +63,10 @@ def test_full_workflow_in_browser(app_url, browser, deck):
     page.get_by_role("button", name="Add to library").click()
     page.get_by_text("already in the library").wait_for(timeout=30_000)
 
-    # Ask a visual question
+    # Ask a visual question (after checking the Surprise me button fills the box)
     page.get_by_role("tab", name="Ask").click()
+    page.get_by_role("button", name="Surprise me").click()
+    page.wait_for_function("document.querySelector('textarea').value.length > 10", timeout=10_000)
     page.get_by_label("Your question").fill("Find the meme about Vibe Coding on Prod. What does it say?")
     page.get_by_role("button", name="Ask", exact=True).click()
     page.get_by_text("one does not simply", exact=False).first.wait_for(timeout=30_000)
@@ -83,6 +85,7 @@ def test_full_workflow_in_browser(app_url, browser, deck):
     page.get_by_role("button", name="Show answer").first.click()
     page.get_by_text("Correct answer").first.wait_for(timeout=10_000)
     page.get_by_text("Score: 0 / 5").wait_for(timeout=10_000)
+    page.get_by_text("1 of 5 done").wait_for(timeout=10_000)
     page.screenshot(path=str(OUT / "quiz_light.png"), full_page=True)
 
     # Dark mode readability snapshot

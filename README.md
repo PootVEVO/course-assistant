@@ -44,6 +44,8 @@ instead of guessing.
   questions, each tied to a source quote. The answer key is fixed when the quiz is generated and kept on the
   server. Solutions stay hidden until you answer (first answer is final) or press **Show answer**. Scores are
   computed from the key.
+- **A little fun:** a 🎲 *Surprise me* button suggests a question to try. Quizzes show a progress bar and a 🔥 streak
+  counter (peeking with *Show answer* resets it), give varied feedback, and end with a message based on your score.
 - **Graceful failures:** if a model service is down, the other retrievers keep working and you see a warning. If
   the LLM is down, the closest pages are still shown. API keys never appear in the UI, logs or errors.
 
@@ -182,7 +184,7 @@ pytest -m live -v                       # real class services (needs .env and ne
 ```
 
 - **Unit tests** (`tests/test_unit.py`) cover JSON extraction, quote verification, schema validation, chunk
-  metadata, RRF fusion, quiz-session rules (hidden key, first answer final, scoring), and the exact HTTP payloads
+  metadata, RRF fusion, quiz-session rules (hidden key, first answer final, scoring, streaks), and the exact HTTP payloads
   sent to each service. They also check fallbacks (no `input_type`, no `response_format`) and that keys never
   appear in errors.
 - **End-to-end tests** (`tests/test_e2e.py`) run the real pipeline (rendering, BM25, Chroma, LibreOffice) with
@@ -197,13 +199,13 @@ pytest -m live -v                       # real class services (needs .env and ne
   - the evaluation harness
 - **UI test** (`tests/test_ui.py`) drives the real Gradio app in Chromium:
   - upload, then duplicate upload
-  - ask the meme question and see the slide
+  - the *Surprise me* button, then ask the meme question and see the slide
   - generate a quiz, check that solutions are hidden, then show an answer and check the score
   - light and dark screenshots, then remove the document
 - **Live tests** (`tests/test_live.py`) check each real service: embeddings rank the relevant text/image higher,
   the reranker prefers the meme slide, the LLM returns JSON, and OCR reads text.
 
-Last offline run: <!-- TESTS -->**43 passed, 4 skipped** (the 4 live tests skip without network access to the class server).<!-- /TESTS -->
+Last offline run: <!-- TESTS -->**45 passed, 4 skipped** (the 4 live tests skip without network access to the class server).<!-- /TESTS -->
 
 ## Evaluation: reranker on vs off
 
