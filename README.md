@@ -355,8 +355,8 @@ service accepted our request formats. The 8-question evaluation is above, and th
 
 - **Ian Anderson:** built the app with an AI coding agent, ran the live evaluation, checked the answers against the
   slides, and wrote this report.
-- **Driss:** _to be filled in after his review of the `fun-quiz-extras` pull request._
-- **Ruslan:** did not participate in this assignment.
+- **Driss:** Assisted with the building and creation of this app and assignment. Fun times!
+- **Ruslan:** Could not reach him.
 
 ## Team workflow
 
