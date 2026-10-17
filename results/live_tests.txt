@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/iananderson/Library/CloudStorage/OneDrive-UCB-O365/CU Work/Classes/Fall 2026/MBAX 6418 - Business Generative AI and LLM/Homework/Assignment 2/course-assistant
+configfile: pytest.ini
+testpaths: tests
+plugins: langsmith-0.14.11, anyio-4.15.1
+collected 49 items / 45 deselected / 4 selected
+
+tests/test_live.py ....                                                  [100%]
+
+======================= 4 passed, 45 deselected in 4.81s =======================

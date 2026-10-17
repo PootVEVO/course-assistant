@@ -1,0 +1,133 @@
++ PY=
++ for c in python3.13 python3.12 python3.11 python3.10 /opt/homebrew/bin/python3 /usr/local/bin/python3 python3
++ command -v python3.13
++ for c in python3.13 python3.12 python3.11 python3.10 /opt/homebrew/bin/python3 /usr/local/bin/python3 python3
++ command -v python3.12
++ for c in python3.13 python3.12 python3.11 python3.10 /opt/homebrew/bin/python3 /usr/local/bin/python3 python3
++ command -v python3.11
++ python3.11 -c 'import sys; sys.exit(0 if sys.version_info >= (3,10) else 1)'
+++ command -v python3.11
++ PY=/Users/iananderson/.local/bin/python3.11
++ break
++ '[' -z /Users/iananderson/.local/bin/python3.11 ']'
++ /Users/iananderson/.local/bin/python3.11 --version
+Python 3.11.16
++ VENV=/Users/iananderson/.venvs/course-assistant
++ '[' -x /Users/iananderson/.venvs/course-assistant/bin/python ']'
++ /Users/iananderson/.local/bin/python3.11 -m venv /Users/iananderson/.venvs/course-assistant
++ /Users/iananderson/.venvs/course-assistant/bin/python -m pip install -q --upgrade pip
++ /Users/iananderson/.venvs/course-assistant/bin/python -m pip install -q -r requirements-dev.txt
++ /Users/iananderson/.venvs/course-assistant/bin/python -m playwright install chromium
+Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/mac-arm64/chrome-mac-arm64.zip[22m
+|                                                                                |   0% of 185.8 MiB
+|■■■■■■■■                                                                        |  10% of 185.8 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 185.8 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 185.8 MiB
+Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /Users/iananderson/Library/Caches/ms-playwright/chromium-1248
+Downloading FFmpeg (playwright ffmpeg v1013)[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-mac-arm64.zip[22m
+|                                                                                |   1% of 1.4 MiB
+|■■■■■■■■                                                                        |  10% of 1.4 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 1.4 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 1.4 MiB
+FFmpeg (playwright ffmpeg v1013) downloaded to /Users/iananderson/Library/Caches/ms-playwright/ffmpeg-1013
+Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248)[2m from https://cdn.playwright.dev/builds/cft/156.0.8078.4/mac-arm64/chrome-headless-shell-mac-arm64.zip[22m
+|                                                                                |   0% of 99 MiB
+|■■■■■■■■                                                                        |  10% of 99 MiB
+|■■■■■■■■■■■■■■■■                                                                |  20% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 99 MiB
+|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 99 MiB
+Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /Users/iananderson/Library/Caches/ms-playwright/chromium_headless_shell-1248
++ '[' -f .env ']'
++ curl -s -m 10 -o /dev/null -w 'class server reachable: HTTP %{http_code}\n' http://dobolyi.com:9001/v1/models
+class server reachable: HTTP 401
++ /Users/iananderson/.venvs/course-assistant/bin/python -m pytest
++ tail -3
+ERROR tests/test_e2e.py::test_eval_harness_scores_and_summarizes - OSError: [...
+ERROR tests/test_ui.py::test_full_workflow_in_browser - pyo3_runtime.PanicExc...
+3 failed, 43 passed, 1 skipped, 2 errors in 19.94s
++ /Users/iananderson/.venvs/course-assistant/bin/python -m pytest -m live -v
++ tee results/live_tests.txt
++ tail -15
+============================= test session starts ==============================
+platform darwin -- Python 3.11.16, pytest-9.1.1, pluggy-1.7.0
+rootdir: /Users/iananderson/Library/CloudStorage/OneDrive-UCB-O365/CU Work/Classes/Fall 2026/MBAX 6418 - Business Generative AI and LLM/Homework/Assignment 2/course-assistant
+configfile: pytest.ini
+testpaths: tests
+plugins: langsmith-0.14.11, anyio-4.15.1
+collected 49 items / 45 deselected / 4 selected
+
+tests/test_live.py ....                                                  [100%]
+
+======================= 4 passed, 45 deselected in 4.81s =======================
++ /Users/iananderson/.venvs/course-assistant/bin/python -m eval.run_eval --materials course_files
+Loading 4 files into /Users/iananderson/Library/CloudStorage/OneDrive-UCB-O365/CU Work/Classes/Fall 2026/MBAX 6418 - Business Generative AI and LLM/Homework/Assignment 2/course-assistant/eval/.data ...
+  added: MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf (20s)
+  added: MBAX 6418 - Week 3 - Prompt Engineering v1.pdf (14s)
+  added: MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf (10s)
+  added: MBAX 6418 Syllabus Fall 2026.pdf (6s)
+[rerank_on] Q1 correct=True cited=True hit=True 7.6s
+[rerank_on] Q2 correct=True cited=True hit=True 6.0s
+[rerank_on] Q3 correct=True cited=True hit=True 7.0s
+[rerank_on] Q4 correct=True cited=True hit=True 6.2s
+[rerank_on] Q5 correct=True cited=True hit=True 9.2s
+[rerank_on] Q6 correct=True cited=True hit=True 6.1s
+[rerank_on] Q7 correct=True cited=True hit=True 9.4s
+[rerank_on] Q8 correct=True cited=True hit=None 4.5s
+[rerank_off] Q1 correct=True cited=True hit=True 2.8s
+[rerank_off] Q2 correct=True cited=True hit=True 2.8s
+[rerank_off] Q3 correct=True cited=True hit=True 3.7s
+[rerank_off] Q4 correct=True cited=True hit=True 2.5s
+[rerank_off] Q5 correct=True cited=True hit=True 2.7s
+[rerank_off] Q6 correct=True cited=True hit=True 3.0s
+[rerank_off] Q7 correct=True cited=True hit=True 3.0s
+[rerank_off] Q8 correct=True cited=True hit=None 2.0s
+
+Evaluation run 2026-10-16 22:34 | files: MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf, MBAX 6418 - Week 3 - Prompt Engineering v1.pdf, MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf, MBAX 6418 Syllabus Fall 2026.pdf | LLM: cyankiwi/Qwen3.6-35B-A3B-AWQ-4bit | evidence pages per answer: 4
+
+| Metric | rerank_on | rerank_off |
+|---|---|---|
+| Correct answers (auto-graded) | 8/8 | 8/8 |
+| Cited the expected source | 8/8 | 8/8 |
+| Expected page in evidence sent to LLM | 7/7 | 7/7 |
+| Support check = supported | 7/7 | 7/7 |
+| Mean latency (s) | 7.0 | 2.8 |
+| Median latency (s) | 6.6 | 2.8 |
+
+| Q | Type | rerank_on: correct / source / time | rerank_off: correct / source / time |
+|---|---|---|---|
+| Q1 | syllabus text | yes / yes / 7.62s | yes / yes / 2.81s |
+| Q2 | syllabus text | yes / yes / 6.03s | yes / yes / 2.8s |
+| Q3 | slide text | yes / yes / 7.04s | yes / yes / 3.71s |
+| Q4 | slide text | yes / yes / 6.15s | yes / yes / 2.55s |
+| Q5 | visual (meme) | yes / yes / 9.21s | yes / yes / 2.67s |
+| Q6 | visual (chart) | yes / yes / 6.15s | yes / yes / 3.01s |
+| Q7 | visual (chart) | yes / yes / 9.4s | yes / yes / 3.02s |
+| Q8 | missing information | yes / yes / 4.52s | yes / yes / 2.01s |
++ /Users/iananderson/.venvs/course-assistant/bin/python scripts/capture_screenshots.py --data-dir eval/.data
+saved answer_with_slide.png
+saved answer_dark.png
+saved quiz_feedback.png
+Closing server running on port: 55399
++ set +x
+=== LIVE RUN FINISHED ===
+Done - press Enter to close this window
