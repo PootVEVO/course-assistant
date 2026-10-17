@@ -276,14 +276,7 @@ per answer and the support check on.
   beginning (primacy bias) or the very end (recency bias)..."* (Week 5, slide 7)
 - Q8: *"The provided materials do not contain Professor Dobolyi's office phone number."* (no sources shown)
 
-**Interpretation** _(draft - rewrite in our own words)_: On this question set the reranker did not change answer
-quality. Both settings got the same 7 of 8 fully right and cited the right page every time. Hybrid retrieval with RRF
-already put the expected page first for every answerable question, so the reranker had nothing to fix. It still cost
-about 4 extra seconds per question (2-3.6 s of reranking), making answers about 2.5x slower. The reranker did reorder
-the lower evidence slots, and once that hurt slightly: for Q1 it promoted an unrelated Week 3 slide into the evidence.
-**We would set the reranker to off by default** for this course-sized library and keep the checkbox for harder
-questions. Caveats: 8 questions is a small sample, our questions name their topic clearly (which favors keyword
-search), and a larger library or vaguer questions could make reranking worth its cost.
+**Interpretation** Overall, the reranker didn't really improve our answers. Both settings got 7 out of 8 questions completely right and cited the correct page every time. The hybrid retrieval with RRF was already finding the right page first for every question that had an answer, so there wasn't much for the reranker to improve. It also added around 4 seconds per question, making responses about 2.5 times slower. It did change the order of some of the supporting evidence, but that wasn't always helpful. For example, on Q1 it actually brought in an unrelated Week 3 slide. Based on these results, we'd probably leave the reranker off by default for a library this size, but keep it as an option for more difficult questions. That said, we only tested 8 questions, and most of them had pretty clear topics that made keyword searching easier. With a bigger library or more vague questions, the reranker might end up being more useful.
 <!-- /RESULTS -->
 
 ## Screenshots
