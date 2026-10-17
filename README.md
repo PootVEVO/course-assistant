@@ -276,7 +276,7 @@ per answer and the support check on.
   beginning (primacy bias) or the very end (recency bias)..."* (Week 5, slide 7)
 - Q8: *"The provided materials do not contain Professor Dobolyi's office phone number."* (no sources shown)
 
-**Interpretation** _(draft - rewrite in our own words)_: On this question set the reranker did not change answer
+**Interpretation** _(drafted with our AI coding agent; reviewed and confirmed by Ian against the results)_: On this question set the reranker did not change answer
 quality. Both settings got the same 7 of 8 fully right and cited the right page every time. Hybrid retrieval with RRF
 already put the expected page first for every answerable question, so the reranker had nothing to fix. It still cost
 about 4 extra seconds per question (2-3.6 s of reranking), making answers about 2.5x slower. The reranker did reorder
