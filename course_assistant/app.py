@@ -5,6 +5,7 @@ Run:  python -m course_assistant.app      (then open http://127.0.0.1:7860)
 from __future__ import annotations
 
 import argparse
+import random
 import html
 import logging
 from pathlib import Path
@@ -21,11 +22,43 @@ from .store import Library
 log = logging.getLogger("course_assistant")
 MAX_Q = 10
 
+SURPRISE_QUESTIONS = [
+    'Find the meme about Vibe Coding on "Prod" in the Week 2 slides. What does it say?',
+    "What does the Stack Overflow chart in Week 2 say about how LLMs changed things?",
+    "Explain the hybrid RAG pipeline diagram like I'm a busy MBA student.",
+    "What is speculative decoding, in one sentence?",
+    "What happens if I turn an assignment in two days late?",
+    "What is the 'lost in the middle' effect?",
+    "What is the difference between vibe coding and agentic coding?",
+    "How much of my grade is the final project?",
+]
+CHEERS = ["Nailed it!", "Boom.", "Textbook.", "Correct, and the slides back you up.", "You've clearly been to class."]
+NUDGES = ["Not quite.", "Close, but no.", "Good guess, wrong slide.", "Plot twist."]
+
+
+def final_message(correct: int, total: int, best_streak: int) -> str:
+    ratio = correct / total if total else 0
+    if ratio == 1:
+        msg = "\U0001F389 **Perfect score!** You could teach this section."
+    elif ratio >= 0.8:
+        msg = "\U0001F31F **Great work!** Just a little polishing left."
+    elif ratio >= 0.5:
+        msg = "\U0001F4AA **Solid start.** Review the slides on the ones you missed, then try another round."
+    else:
+        msg = "\U0001F4DA **Good practice run.** Open the source slides above and try again. Same topic, new questions."
+    if best_streak >= 3:
+        msg += f" Best streak: \U0001F525 {best_streak}."
+    return msg
+
 CSS = """
 .ca-badge {display:inline-block;padding:2px 10px;border-radius:999px;font-size:0.85em;font-weight:600;margin:4px 0;}
 .ca-ok {background:#d1fae5;color:#065f46;} .ca-warn {background:#fef3c7;color:#92400e;} .ca-bad {background:#fee2e2;color:#991b1b;}
 .ca-src {border-left:3px solid var(--color-accent);padding:4px 10px;margin:6px 0;}
 .ca-muted {opacity:0.75;font-size:0.9em;}
+.ca-progress {height:8px;border-radius:999px;background:var(--neutral-200);overflow:hidden;margin:4px 0 2px;}
+.dark .ca-progress {background:var(--neutral-700);}
+.ca-progress-fill {height:100%;background:linear-gradient(90deg,#6366f1,#22c55e);transition:width .4s ease;}
+.ca-streak {font-size:0.8em;padding:2px 10px;border-radius:999px;background:#ffedd5;color:#9a3412;margin-left:8px;}
 """
 
 
@@ -173,7 +206,15 @@ def build_app(settings: Settings | None = None, clients: Clients | None = None) 
             return ""
         s = session.score()
         extra = f" - {s['revealed_without_answer']} revealed without answering" if s["revealed_without_answer"] else ""
-        return f"### Score: {s['correct']} / {s['total']}  <span class='ca-muted'>({s['answered']} answered{extra})</span>"
+        done = len(session.revealed)
+        pct = int(100 * done / s["total"])
+        bar = (f"<div class='ca-progress'><div class='ca-progress-fill' style='width:{pct}%'></div></div>"
+               f"<span class='ca-muted'>{done} of {s['total']} done</span>")
+        streak = f" <span class='ca-streak'>\U0001F525 {session.streak} in a row</span>" if session.streak >= 2 else ""
+        md = f"### Score: {s['correct']} / {s['total']}{streak}  <span class='ca-muted'>({s['answered']} answered{extra})</span>\n\n{bar}"
+        if session.finished:
+            md += "\n\n" + final_message(s["correct"], s["total"], session.best_streak)
+        return md
 
     def make_quiz(doc_ids, topic, n, progress=gr.Progress()):
         progress(0.1, desc="Selecting material and writing questions...")
@@ -195,9 +236,9 @@ def build_app(settings: Settings | None = None, clients: Clients | None = None) 
         if not fb["answered"]:
             head = f"<span class='ca-badge ca-warn'>Answer revealed</span> Correct answer: **{_esc(right)}**"
         elif fb["is_correct"]:
-            head = f"<span class='ca-badge ca-ok'>Correct</span> **{_esc(right)}**"
+            head = f"<span class='ca-badge ca-ok'>Correct</span> {random.choice(CHEERS)} **{_esc(right)}**"
         else:
-            head = (f"<span class='ca-badge ca-bad'>Incorrect</span> You chose {LETTERS[fb['chosen']]}. "
+            head = (f"<span class='ca-badge ca-bad'>Incorrect</span> {random.choice(NUDGES)} You chose {LETTERS[fb['chosen']]}. "
                     f"Correct answer: **{_esc(right)}**")
         src = fb["source"]
         ev = (f"*Visual evidence:* {_esc(src['quote'])}" if src.get("evidence_type") == "image"
@@ -232,8 +273,8 @@ def build_app(settings: Settings | None = None, clients: Clients | None = None) 
 
     # ------------------------------------------------------------------ layout
     with gr.Blocks(title="Course Assistant") as demo:
-        gr.Markdown("# Course Assistant\nAsk questions about your course materials or practice with a quiz. "
-                    "Answers come only from the files you load and always show their sources.")
+        gr.Markdown("# \U0001F393 Course Assistant\nAsk anything about your course materials, or test yourself with a quiz. "
+                    "Every answer comes from the files you load, with the receipts (the slides themselves) attached.")
         quiz_state = gr.State(None)
         with gr.Tabs():
             with gr.Tab("Ask"):
@@ -244,7 +285,9 @@ def build_app(settings: Settings | None = None, clients: Clients | None = None) 
                     with gr.Column(scale=2):
                         ask_docs = gr.Dropdown(label="Limit to documents (optional)", multiselect=True, choices=[])
                         use_rerank = gr.Checkbox(label="Use multimodal reranker", value=settings.use_reranker)
-                ask_btn = gr.Button("Ask", variant="primary")
+                with gr.Row():
+                    ask_btn = gr.Button("Ask", variant="primary", scale=4)
+                    surprise_btn = gr.Button("\U0001F3B2 Surprise me", scale=1)
                 answer_md = gr.Markdown()
                 with gr.Row():
                     with gr.Column(scale=3):
@@ -256,6 +299,7 @@ def build_app(settings: Settings | None = None, clients: Clients | None = None) 
                     details_md = gr.Markdown()
                 ask_btn.click(ask, [question, ask_docs, use_rerank], [answer_md, sources_md, gallery, details_md])
                 question.submit(ask, [question, ask_docs, use_rerank], [answer_md, sources_md, gallery, details_md])
+                surprise_btn.click(lambda: random.choice(SURPRISE_QUESTIONS), None, question)
 
             with gr.Tab("Quiz"):
                 with gr.Row():

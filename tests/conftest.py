@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import io
+import resource
 from pathlib import Path
 
 import pymupdf
@@ -12,6 +13,16 @@ from course_assistant.store import Library
 from tests.fakes import FakeClients
 
 SLIDE = (720, 405)
+
+# macOS allows only 256 open files per process by default; every test opens its own
+# Chroma database, so raise the soft limit as far as the OS allows.
+try:
+    _soft, _hard = resource.getrlimit(resource.RLIMIT_NOFILE)
+    _want = 8192 if _hard == resource.RLIM_INFINITY else min(8192, _hard)
+    if _soft < _want:
+        resource.setrlimit(resource.RLIMIT_NOFILE, (_want, _hard))
+except (ValueError, OSError):  # pragma: no cover
+    pass
 
 # What the fake "vision" models see in each page image of sample_deck.pdf
 CAPTIONS = {
@@ -68,6 +79,17 @@ def settings(tmp_path, monkeypatch):
 @pytest.fixture
 def clients():
     return FakeClients(CAPTIONS)
+
+
+@pytest.fixture(autouse=True)
+def _release_chroma():
+    """Close Chroma clients after each test so file handles don't pile up (macOS)."""
+    yield
+    try:
+        from chromadb.api.client import SharedSystemClient
+        SharedSystemClient.clear_system_cache()
+    except Exception:  # noqa: BLE001
+        pass
 
 
 @pytest.fixture

@@ -247,3 +247,20 @@ def test_settings_read_env_and_hide_key(monkeypatch, tmp_path):
     s = load_settings(env_file=tmp_path / "none.env", data_dir=tmp_path)
     assert s.reranker.base_url == "http://h.test:9004" and s.use_reranker is False
     assert s.llm.api_key == "k-999" and "k-999" not in repr(s.llm)
+
+
+def test_quiz_streaks_and_finish():
+    s = _session()  # keys: 2, 0, 1
+    s.submit(0, 2)
+    s.submit(1, 0)
+    assert s.streak == 2 and s.best_streak == 2 and not s.finished
+    s.reveal(2)       # peeking breaks the streak
+    assert s.streak == 0 and s.best_streak == 2 and s.finished
+
+
+def test_final_message_tiers():
+    from course_assistant.app import final_message
+    assert "Perfect" in final_message(5, 5, 5) and "streak" in final_message(5, 5, 5)
+    assert "Great" in final_message(4, 5, 1)
+    assert "Solid" in final_message(3, 5, 0)
+    assert "practice" in final_message(1, 5, 0)

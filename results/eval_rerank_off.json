@@ -1,0 +1,257 @@
+[
+  {
+    "config": "rerank_off",
+    "id": "Q1",
+    "type": "syllabus text",
+    "question": "What percentage of the final grade is the final project worth?",
+    "answerable": true,
+    "found": true,
+    "answer": "The final project is worth 45% of the final grade.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 3",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 2"
+    ],
+    "evidence": [
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 3 (ranks {'keyword': 2, 'text': 1, 'visual': 1}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 2 (ranks {'keyword': 1, 'text': 2, 'visual': 3}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 7 (ranks {'keyword': 3, 'text': 3, 'visual': 2}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 4 (ranks {'keyword': 14, 'text': 4, 'visual': 6}, rerank None)"
+    ],
+    "seconds": 2.81,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.331,
+      "visual_search": 0.285,
+      "generate": 1.488,
+      "support_check": 0.709,
+      "total": 2.814
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q2",
+    "type": "syllabus text",
+    "question": "What is the penalty for turning in an assignment late, and what is the latest it can be submitted?",
+    "answerable": true,
+    "found": true,
+    "answer": "Assignments submitted late will incur a 10% grade penalty for every calendar day they are late. However, assignments cannot be submitted more than five days late.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 2",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 3"
+    ],
+    "evidence": [
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 2 (ranks {'keyword': 1, 'text': 1, 'visual': 5}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 7 (ranks {'keyword': 4, 'text': 3, 'visual': 1}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 3 (ranks {'keyword': 6, 'text': 2, 'visual': 4}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 5 (ranks {'keyword': 16, 'text': 4, 'visual': 9}, rerank None)"
+    ],
+    "seconds": 2.8,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.259,
+      "visual_search": 0.203,
+      "generate": 1.627,
+      "support_check": 0.71,
+      "total": 2.799
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q3",
+    "type": "slide text",
+    "question": "What is speculative decoding?",
+    "answerable": true,
+    "found": true,
+    "answer": "Speculative decoding is a method that improves throughput by \"guessing\" several upcoming candidate tokens (e.g., 3 tokens ahead) and verifying them by the model in a single pass. Some methods, like multi-token prediction (MTP), are built into models, while others, such as DSpark and DFlash, use a separate drafter model working with a larger model.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 13"
+    ],
+    "evidence": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 13 (ranks {'keyword': 1, 'text': 1}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 2 (ranks {'text': 4, 'visual': 1}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 11 (ranks {'keyword': 2, 'text': 5}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 36 (ranks {'text': 7, 'visual': 3}, rerank None)"
+    ],
+    "seconds": 3.71,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.352,
+      "visual_search": 0.347,
+      "generate": 2.27,
+      "support_check": 0.724,
+      "total": 3.707
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q4",
+    "type": "slide text",
+    "question": "In a hybrid RAG pipeline, what does the reranker do?",
+    "answerable": true,
+    "found": true,
+    "answer": "In a hybrid RAG pipeline, the reranker compares the retrieved candidate chunks to the original question and prioritizes which chunks are supplied to the LLM as context.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 18"
+    ],
+    "evidence": [
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 18 (ranks {'keyword': 1, 'text': 1, 'visual': 1}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 10 (ranks {'keyword': 4, 'text': 2, 'visual': 2}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 5 (ranks {'keyword': 3, 'text': 14, 'visual': 4}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 11 (ranks {'keyword': 18, 'text': 3, 'visual': 6}, rerank None)"
+    ],
+    "seconds": 2.55,
+    "timings": {
+      "keyword_search": 0.0,
+      "text_search": 0.246,
+      "visual_search": 0.199,
+      "generate": 1.482,
+      "support_check": 0.602,
+      "total": 2.547
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q5",
+    "type": "visual (meme)",
+    "question": "Find the meme about Vibe Coding on \"Prod\" in the Week 2 course slides. What do its image and text show?",
+    "answerable": true,
+    "found": true,
+    "answer": "The meme is titled \"Vibe Coding on 'Prod'\" and features the \"One Does Not Simply\" image of Boromir from Lord of the Rings. The text overlaid on the image reads: \"ONE DOES NOT SIMPLY VIBE CODE A PRODUCTION-GRADE ENTERPRISE APP.\"",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 33"
+    ],
+    "evidence": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 33 (ranks {'keyword': 2, 'text': 1, 'visual': 9}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 2 (ranks {'keyword': 7, 'text': 2, 'visual': 3}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 42 (ranks {'keyword': 5, 'text': 11, 'visual': 7}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 36 (ranks {'keyword': 17, 'text': 7, 'visual': 2}, rerank None)"
+    ],
+    "seconds": 2.67,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.243,
+      "visual_search": 0.199,
+      "generate": 1.467,
+      "support_check": 0.748,
+      "total": 2.671
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q6",
+    "type": "visual (chart)",
+    "question": "On the Week 2 slide \"LLMs Changed Things...Forever?\", what does the chart show about Stack Overflow questions over time?",
+    "answerable": true,
+    "found": true,
+    "answer": "The chart shows that monthly questions on Stack Overflow peaked between 2014 and 2017, then declined, with notable drops around the start of COVID-19 and after ChatGPT launched.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 28"
+    ],
+    "evidence": [
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 28 (ranks {'keyword': 1, 'text': 1, 'visual': 1}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 2 (ranks {'keyword': 13, 'text': 3, 'visual': 5}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 7 (ranks {'keyword': 7, 'text': 2}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 40 (ranks {'text': 8, 'visual': 3}, rerank None)"
+    ],
+    "seconds": 3.01,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.288,
+      "visual_search": 0.218,
+      "generate": 1.848,
+      "support_check": 0.635,
+      "total": 3.007
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q7",
+    "type": "visual (chart)",
+    "question": "According to the chart on the \"Context Location Matters?\" slide, how does model accuracy change depending on where the relevant document is placed in the context?",
+    "answerable": true,
+    "found": true,
+    "answer": "Model accuracy follows a U-shaped curve, meaning it is highest when the relevant information is at the very beginning (primacy bias) or the very end (recency bias) of the context, and it degrades significantly when the information is located in the middle.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": true,
+    "support_verdict": "supported",
+    "sources": [
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 7"
+    ],
+    "evidence": [
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 7 (ranks {'keyword': 1, 'text': 1}, rerank None)",
+      "MBAX 6418 - Week 2 - LLM Fundamentals v2.pdf - Slide 9 (ranks {'keyword': 2, 'text': 3}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 19 (ranks {'keyword': 4, 'text': 2}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 13 (ranks {'keyword': 3, 'text': 4}, rerank None)"
+    ],
+    "seconds": 3.02,
+    "timings": {
+      "keyword_search": 0.001,
+      "text_search": 0.25,
+      "visual_search": 0.197,
+      "generate": 1.697,
+      "support_check": 0.863,
+      "total": 3.018
+    },
+    "warnings": []
+  },
+  {
+    "config": "rerank_off",
+    "id": "Q8",
+    "type": "missing information",
+    "question": "What is Professor Dobolyi's office phone number?",
+    "answerable": false,
+    "found": false,
+    "answer": "The provided materials do not contain Professor Dobolyi's office phone number.",
+    "auto_correct": true,
+    "cited_expected_source": true,
+    "retrieval_hit_at_k": null,
+    "support_verdict": null,
+    "sources": [],
+    "evidence": [
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 1 (ranks {'keyword': 1, 'text': 1, 'visual': 3}, rerank None)",
+      "MBAX 6418 Syllabus Fall 2026.pdf - Page 5 (ranks {'keyword': 13, 'text': 6, 'visual': 9}, rerank None)",
+      "MBAX 6418 - Week 3 - Prompt Engineering v1.pdf - Slide 1 (ranks {'keyword': 2, 'text': 2}, rerank None)",
+      "MBAX 6418 - Week 5 - Context Engineering and RAG v1.pdf - Slide 1 (ranks {'keyword': 3, 'text': 3}, rerank None)"
+    ],
+    "seconds": 2.01,
+    "timings": {
+      "keyword_search": 0.0,
+      "text_search": 0.344,
+      "visual_search": 0.356,
+      "generate": 1.294,
+      "total": 2.011
+    },
+    "warnings": []
+  }
+]

@@ -76,6 +76,8 @@ class QuizSession:
     answers: dict[int, int] = field(default_factory=dict)  # question index -> chosen option (first answer is final)
     revealed: set[int] = field(default_factory=set)
     meta: dict = field(default_factory=dict)
+    streak: int = 0          # consecutive correct answers (resets on a miss or a reveal)
+    best_streak: int = 0
 
     def public_question(self, i: int) -> dict:
         q = self.questions[i]
@@ -90,11 +92,22 @@ class QuizSession:
             return self.feedback(i)  # answers are locked once given or revealed
         self.answers[i] = choice
         self.revealed.add(i)
+        if choice == self.questions[i]["correct_option"]:
+            self.streak += 1
+            self.best_streak = max(self.best_streak, self.streak)
+        else:
+            self.streak = 0
         return self.feedback(i)
 
     def reveal(self, i: int) -> dict:
+        if i not in self.revealed:
+            self.streak = 0  # peeking breaks the streak
         self.revealed.add(i)
         return self.feedback(i)
+
+    @property
+    def finished(self) -> bool:
+        return len(self.revealed) == len(self.questions) > 0
 
     def feedback(self, i: int) -> dict:
         if i not in self.revealed:
