@@ -353,10 +353,9 @@ service accepted our request formats. The 8-question evaluation is above, and th
 
 ## Team contributions
 
-- **Ian Anderson:** built the app with an AI coding agent, ran the live evaluation, checked the answers against the
-  slides, and wrote this report.
-- **Driss:** Assisted with the building and creation of this app and assignment. Fun times!
-- **Ruslan:** Could not reach him.
+- **Ian Anderson:** built the app with an AI coding agent, ran the live evaluation, checked the answers against the slides, and wrote this report.
+- **Driss Ziane:** reviewed PR #1 (results, screenshots and limitations); highlighted the retrieval-vs-interpretation gap shown by Q6 and the value of showing the original slide so students can check answers.
+- **Ruslan Ushynskyy:** reviewed PR #1 (quiz features, screenshots, reranker comparison) and confirmed the manual 7/8 result.
 
 ## Team workflow
 
